@@ -1,0 +1,27 @@
+@if (startIcon()) {
+  <ng-container
+    [ngTemplateOutlet]="startIcon()"
+  />
+}
+
+<span class="btn-text-content">
+  <ng-content></ng-content>
+</span>
+
+@if (endIcon()) {
+  <ng-container
+    [ngTemplateOutlet]="startIcon()"
+  />
+}
+
+@if (loading()) {
+  @if (loadingRef()) {
+    <ng-container
+      [ngTemplateOutlet]="loadingRef()"
+    />
+  } @else {
+    <div class="absolute inset-0 bg-inherit grid place-items-center">
+      <i-lucide [img]="Loader2" class="animate-spin" />
+    </div>
+  }
+}
